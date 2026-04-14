@@ -36,19 +36,20 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-20">
-      <div className="container">
-        <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-12 transition-colors">
-          <ArrowLeft size={18} /> Back to Portfolio
+    <div className="min-h-screen bg-[#030014]/60 pt-[120px] pb-20">
+      <div className="container mx-auto px-6">
+        <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-12 transition-colors group">
+          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+          Back to Portfolio
         </Link>
         
         <header className="mb-20">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             className="text-5xl md:text-7xl font-bold font-heading mb-6"
           >
-            Insights & <span className="gradient-text">Articles</span>
+            Insights & <span className="text-cyan-400">Articles</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

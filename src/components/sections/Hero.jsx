@@ -1,73 +1,83 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MousePointer2 } from 'lucide-react';
+import { ArrowRight, Cpu, Zap } from 'lucide-react';
 import Button from '../ui/Button';
 
 const Hero = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 120,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const tags = ["AI Systems", "Content Monetization", "Startup Builder", "Mechanical + Digital Integration"];
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
-      {/* Background Blobs */}
-      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-blue-600/20 rounded-full blur-[120px] floating"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] floating" style={{ animationDelay: '-2s' }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px]"></div>
-
-      <div className="container relative z-10">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-[140px]">
+      <div className="container relative z-10 max-w-[1000px] mx-auto px-6">
         <div className="flex flex-col items-center text-center">
+          
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8 relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full p-1 bg-gradient-to-tr from-blue-500 to-purple-500">
-              <div className="w-full h-full rounded-full bg-gray-900 border-4 border-gray-900 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&h=256&auto=format&fit=crop" 
-                  alt="Profile" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <motion.div 
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4 }}
-              className="absolute -bottom-2 -right-2 bg-white text-black p-2 rounded-xl shadow-xl"
-            >
-              <MousePointer2 size={16} />
-            </motion.div>
+            <span className="hero-name w-full block">
+              PATTA SVS ABHINAV
+            </span>
+            
+            <h1 className="hero-title mb-10">
+              Building Digital Systems & <br />
+              <span className="text-cyan-400">Future-Ready Startups</span>
+            </h1>
+            
+            <p className="hero-subtext mb-12 max-w-2xl mx-auto">
+              Engineering + AI + Content + Business — turning ideas into <span className="text-white font-semibold">scalable systems</span>.
+            </p>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-6 font-heading tracking-tight"
-          >
-            Hi, I'm <span className="gradient-text">Abhinav</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          {/* Premium Tag Buttons */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-2xl"
+            className="flex flex-wrap justify-center gap-4 mb-20"
           >
-            Full Stack Developer & UI/UX Designer crafting <span className="text-white">futuristic</span> digital experiences.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Button variant="primary" className="gap-2">
-              View My Work <ArrowRight size={18} />
-            </Button>
-            <Button variant="glass">
-              Contact Me
-            </Button>
+            {tags.map(tag => (
+              <span key={tag} className="tag-item">
+                {tag}
+              </span>
+            ))}
           </motion.div>
+
+          {/* High-Converting CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+            className="flex items-center justify-center"
+          >
+            <button 
+              className="primary-btn-glow" 
+              onClick={() => scrollToSection('projects')}
+            >
+              Explore Systems <ArrowRight size={20} className="ml-2" />
+            </button>
+          </motion.div>
+          
+          <motion.button 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="mt-8 text-zinc-500 hover:text-cyan-400 transition-colors font-medium tracking-widest text-xs uppercase"
+            onClick={() => scrollToSection('contact')}
+          >
+            Contact Me
+          </motion.button>
         </div>
       </div>
 

@@ -1,31 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Target } from 'lucide-react';
+import { Briefcase, Target, Users, Award, Rocket } from 'lucide-react';
 
 const careerSteps = [
   {
-    type: "Current Role",
-    title: "Senior Full Stack Engineer",
-    company: "TechNexus Solutions",
-    period: "2023 - Present",
-    description: "Leading a team of developers to build scalable enterprise solutions and mentoring junior engineers.",
-    icon: <Briefcase className="text-blue-400" />
+    type: "Current Focus",
+    title: "Digital Creator & Startup Builder",
+    company: "Hyderabad, India",
+    period: "2026 - Present",
+    description: "Building faceless content systems, AI pipelines, and passive income funnel models via Pinterest and digital stores.",
+    icon: <Briefcase className="text-cyan-400" />
   },
   {
-    type: "Learning Journey",
-    title: "Advanced AI Specialization",
-    company: "Stanford Online",
-    period: "2024",
-    description: "Deep diving into Large Language Models, Generative AI, and neural network architectures.",
-    icon: <GraduationCap className="text-purple-400" />
-  },
-  {
-    type: "Future Goal",
-    title: "CTO / Technical Founder",
-    company: "Future Venture",
-    period: "2026",
-    description: "Building a tech startup focused on solving climate change through blockchain and AI integration.",
-    icon: <Target className="text-pink-400" />
+    type: "Academic Foundation",
+    title: "B.Tech Mechanical Engineering",
+    company: "MLRITM College, Hyderabad",
+    period: "2024 - 2028",
+    description: "Integrating hardware systems with software logic to design sustainable physical products and automated businesses.",
+    icon: <Target className="text-purple-400" />
   }
 ];
 
@@ -33,7 +25,7 @@ import Section from '../ui/Section';
 
 const Career = () => {
   return (
-    <Section id="career" title="My Career Journey" subtitle="Path" className="bg-zinc-950/50">
+    <Section id="career" title="My Career Journey" className="bg-transparent">
       <div className="relative max-w-4xl mx-auto">
         {/* Vertical Line */}
         <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-zinc-800 hidden sm:block"></div>
@@ -54,7 +46,7 @@ const Career = () => {
               <div className="absolute -left-[5px] md:left-auto md:right-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] hidden sm:block"></div>
               {index % 2 !== 0 && <div className="absolute -left-[5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] hidden sm:block"></div>}
 
-              <div className={`glass p-8 rounded-3xl w-full sm:w-[90%] ${
+              <div className={`glass p-6 md:p-8 rounded-2xl md:rounded-3xl w-full ${
                 index % 2 === 0 ? 'md:mr-10' : 'md:ml-10'
               }`}>
                 <div className="flex items-center gap-3 mb-4">
