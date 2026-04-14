@@ -314,11 +314,6 @@ button {
 /* Floating Horizontal Header */
 .header-floating {
   position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-.header-floating {
-  position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
