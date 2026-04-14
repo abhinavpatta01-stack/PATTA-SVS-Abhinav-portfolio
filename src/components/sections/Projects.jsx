@@ -33,72 +33,63 @@ const projects = [
   }
 ];
 
+import Section from '../ui/Section';
+import Card from '../ui/Card';
+import Badge from '../ui/Badge';
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-20">
-      <div className="container">
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="section-title text-left mb-0">
-            <span>Portfolio</span>
-            Selected Projects
-          </h2>
-          <Link to="/projects" className="text-zinc-400 hover:text-white flex items-center gap-1 group">
-            View All <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </Link>
-        </div>
+    <Section id="projects" title="Selected Projects" subtitle="Portfolio">
+      <div className="absolute top-0 right-0 p-12 hidden md:block">
+        <Link to="/projects" className="text-zinc-400 hover:text-white flex items-center gap-1 group">
+          View All <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+        </Link>
+      </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              <div className="relative aspect-video rounded-3xl overflow-hidden glass mb-6">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                  <div className="flex gap-3">
-                    <a href={project.github} className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-all">
-                      <Github size={20} />
-                    </a>
-                    <a href={project.live} className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-all">
-                      <ExternalLink size={20} />
-                    </a>
-                  </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <Card key={project.id} delay={index * 0.1} className="group">
+            <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <div className="flex gap-3">
+                  <a href={project.github} className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-all">
+                    <Github size={20} />
+                  </a>
+                  <a href={project.live} className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-all">
+                    <ExternalLink size={20} />
+                  </a>
                 </div>
               </div>
+            </div>
 
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.tags.map(tag => (
-                  <span key={tag} className="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-800 px-2 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-zinc-500 text-sm line-clamp-2">
-                {project.description}
-              </p>
-              
-              <Link 
-                to={`/project/${project.id}`}
-                className="absolute inset-0 z-0"
-              />
-            </motion.div>
-          ))}
-        </div>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.tags.map(tag => (
+                <Badge key={tag} variant="outline">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+            
+            <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+              {project.title}
+            </h3>
+            <p className="text-zinc-500 text-sm line-clamp-2">
+              {project.description}
+            </p>
+            
+            <Link 
+              to={`/project/${project.id}`}
+              className="absolute inset-0 z-0"
+            />
+          </Card>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

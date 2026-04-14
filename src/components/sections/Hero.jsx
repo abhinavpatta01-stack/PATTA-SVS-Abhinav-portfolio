@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MousePointer2 } from 'lucide-react';
+import Button from '../ui/Button';
 
 const Hero = () => {
   return (
@@ -60,12 +61,12 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button className="px-8 py-4 bg-white text-black rounded-full font-semibold flex items-center gap-2 hover:scale-105 transition-transform">
+            <Button variant="primary" className="gap-2">
               View My Work <ArrowRight size={18} />
-            </button>
-            <button className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/10 transition-colors">
+            </Button>
+            <Button variant="glass">
               Contact Me
-            </button>
+            </Button>
           </motion.div>
         </div>
       </div>
